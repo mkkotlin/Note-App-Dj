@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Note App</title>
+    </head>
+    <body>
+        <div>
+            <form method='post' action="save">
+                {% csrf_token %}
+                {{notes_form.as_p}}
+                <button type='submit'>submit</button>
+            </form>
+        </div>
+        {{saved}}
+    </body>
+</html>
