@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_list_or_404
 from .forms import CreateNotes, Notes
 from django.views.decorators.http import require_POST
 
@@ -27,5 +27,5 @@ def view_saved(request):
 
 
 def get_by_title(request,slug):
-    x = get_object_or_404(Notes, title=slug)
+    x = get_list_or_404(Notes, title=slug)
     return render(request,'ViewSaved.html',{'x':x})
