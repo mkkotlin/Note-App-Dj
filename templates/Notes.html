@@ -2,6 +2,11 @@
 <html>
     <head>
         <title>Note App</title>
+        <style>
+            .st{
+                color: green;
+            }
+        </style>
     </head>
     <body>
         <div>
@@ -10,7 +15,8 @@
                 {{notes_form.as_p}}
                 <button type='submit'>submit</button>
             </form>
+            <a href='/admin'>admin</a>
         </div>
-        {{saved}}
+        <strong class="st">{{saved}}</strong>
     </body>
 </html>

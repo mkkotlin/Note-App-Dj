@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import CreateNotes
+from django.views.decorators.http import require_POST
 
 
 # Create your views here.
@@ -9,6 +10,7 @@ def home(request):
     notes_form = CreateNotes(request.POST or None)
     return render(request,'Notes.html',{"notes_form": notes_form})
 
+@require_POST
 def save(request):
     notes_form = CreateNotes(request.POST or None)
     if notes_form.is_valid():
