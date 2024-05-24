@@ -8,3 +8,5 @@ python manage.py makemigrations ==> migration file
 python manage.py shell ==> to start shell
 
 git puch -u -f origin
+git commit -m 'variable message'
+git commit -a
