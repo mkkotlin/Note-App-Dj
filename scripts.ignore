@@ -6,3 +6,5 @@ pip install -r requirements.txt ==> to install requirements.txt
 python manage.py migrate ==> to write to db
 python manage.py makemigrations ==> migration file
 python manage.py shell ==> to start shell
+
+git puch -u -f origin
