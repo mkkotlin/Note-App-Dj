@@ -28,4 +28,4 @@ def view_saved(request):
 
 def get_by_title(request,slug):
     x = get_list_or_404(Notes, title=slug)
-    return render(request,'ViewSaved.html',{'x':x})
+    return render(request,'ViewSaved.html',{'x':x,})

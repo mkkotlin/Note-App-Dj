@@ -3,12 +3,12 @@
 {% if x|length > 0 %}
     {% for i in x %}
         <div class="container">
-            <div class="inner-div">
+           <a href="{% url 'get_by_title' i.title%}"><div class="inner-div">
                 Title:{{i.title}} <br>
                 Description:{{i.description}} <br>
                 Created_date:{{i.created_date}} <br>
                 Choice:{{i.drop_down.drop_down}} <br>
-            </div>
+            </div></a>
         </div>
     {% endfor %}
 {% else %}
