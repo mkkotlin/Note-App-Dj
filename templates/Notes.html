@@ -6,6 +6,14 @@
             .st{
                 color: green;
             }
+            .container{
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+            .inner-div{
+                width: 50%;
+                border-style: groove;
+            }
         </style>
     </head>
     <body>
@@ -16,7 +24,13 @@
                 <button type='submit'>submit</button>
             </form>
             <a href='/admin'>admin</a>
+            <a href='/view_saved'>saved</a>
+            <a href='/'>back</a>
+            <a href='/get_by_title'>get_by_title</a>
         </div>
         <strong class="st">{{saved}}</strong>
+        {{title}}
+        {% block saved_view %}
+        {% endblock %}
     </body>
 </html>

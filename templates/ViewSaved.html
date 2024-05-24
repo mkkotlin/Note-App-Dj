@@ -1,0 +1,24 @@
+{% extends 'Notes.html' %}
+{% block saved_view %}
+{% if x|length > 0 %}
+    {% for i in x %}
+        <div class="container">
+            <div class="inner-div">
+                Title:{{i.title}} <br>
+                Description:{{i.description}} <br>
+                Created_date:{{i.created_date}} <br>
+                Choice:{{i.drop_down.drop_down}} <br>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+        <div class="container">
+            <div class="inner-div">
+                Title: &nbsp;&nbsp;&nbsp;{{x.title}} <br>
+                Description: &nbsp;&nbsp;&nbsp;{{x.description}} <br>
+                Created_date: &nbsp;&nbsp;&nbsp;{{x.created_date}} <br>
+                Choice: &nbsp;&nbsp;&nbsp; {{x.drop_down.drop_down}} <br>
+            </div>
+        </div>
+{% endif %}
+{% endblock %}
