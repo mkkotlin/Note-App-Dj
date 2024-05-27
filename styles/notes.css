@@ -1,7 +1,6 @@
-body{
-    padding: 20px;
-    margin: 0;
+.form-container{
+    max-width: fit-content;
+    display: block;
+    justify-content: center;
 }
-.form-table{
-    transform: translate(50%, 50%);
-}
+

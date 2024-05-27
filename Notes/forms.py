@@ -7,6 +7,8 @@ class CreateNotes(forms.ModelForm):
         model = Notes
         fields = ("title","description","drop_down")
 
-        # widgets = {
-        #     'title': forms.TextInput( attrs={'class':'tt'})
-        # }
+        widgets = {
+            'title': forms.TextInput( attrs={'class':'form-control ','class':'container-fluid'}),
+            'description': forms.Textarea(attrs={'class':'form-control'}),
+            'drop_down': forms.Select(attrs={'class':'form-control'}),
+        }
