@@ -1,6 +1,6 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404 # type: ignore
 from .forms import CreateNotes, Notes
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST # type: ignore
 
 
 # Create your views here.
