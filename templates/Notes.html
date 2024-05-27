@@ -1,26 +1,17 @@
 <!DOCTYPE html>
+{% load static%}
 <html>
     <head>
         <title>Note App</title>
-        <style>
-            .st{
-                color: green;
-            }
-            .container{
-                padding-bottom: 10px;
-                padding-top: 10px;
-            }
-            .inner-div{
-                width: 50%;
-                border-style: groove;
-            }
-        </style>
+        <link rel="stylesheet" href="{% static 'notes.css' %}">
     </head>
     <body>
         <div>
             <form method='post' action="save">
                 {% csrf_token %}
-                {{notes_form.as_p}}
+                <table class="form-table">
+                    {{notes_form.as_table}}
+                </table>
                 <button type='submit'>submit</button>
             </form>
             <a href='/admin'>admin</a>
