@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_list_or_404 # type: ignore
+from datetime import datetime
+from django.shortcuts import render, get_list_or_404, redirect # type: ignore
 from .forms import CreateNotes, Notes
 from django.views.decorators.http import require_POST # type: ignore
 
@@ -22,10 +23,17 @@ def save(request):
 def view_saved(request):
     x = Notes.objects.all()
     print(x)
-    return render(request,'ViewSaved.html',{'x':x})
+    return render(request,'ViewSaved.html',{'x':x,'Edit':True})
 
 
 
 def get_by_title(request,slug):
     x = get_list_or_404(Notes, title=slug)
     return render(request,'ViewSaved.html',{'x':x,})
+
+def delete(request,slug):
+    x = get_list_or_404(Notes, title=slug)
+    ins = Notes.objects.filter(title=slug)
+    print(ins)
+    ins.delete()
+    return redirect('saved')
