@@ -3,4 +3,6 @@
     display: block;
     justify-content: center;
 }
-
+.note_view{
+    text-decoration: none;
+}

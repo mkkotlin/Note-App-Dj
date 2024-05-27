@@ -2,23 +2,20 @@
 {% block saved_view %}
 {% if x|length > 0 %}
     {% for i in x %}
-        <div class="container">
-           <a href="{% url 'get_by_title' i.title%}"><div class="inner-div">
-                Title:{{i.title}} <br>
-                Description:{{i.description}} <br>
-                Created_date:{{i.created_date}} <br>
-                Choice:{{i.drop_down.drop_down}} <br>
-            </div></a>
-        </div>
+        <a class="note_view" href="{% url 'get_by_title' i.title%}">
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-success">Title:&nbsp;&nbsp; {{i.title}}</div>
+                <div class="card-body text-success">
+                  <p class="card-title">Details: &nbsp;&nbsp;{{i.description}}</p>
+                  <p class="card-text">Color:&nbsp;&nbsp;{{i.drop_down.drop_down}}</p>
+                  <p class="card-text">Created date:{{i.created_date}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <a href="#" class="btn btn-primary">Delete</a>
+                    <a href="#" class="btn btn-primary">Update</a>
+                </div>
+              </div>
+         </a>
     {% endfor %}
-{% else %}
-        <div class="container">
-            <div class="inner-div">
-                Title: &nbsp;&nbsp;&nbsp;{{x.title}} <br>
-                Description: &nbsp;&nbsp;&nbsp;{{x.description}} <br>
-                Created_date: &nbsp;&nbsp;&nbsp;{{x.created_date}} <br>
-                Choice: &nbsp;&nbsp;&nbsp; {{x.drop_down.drop_down}} <br>
-            </div>
-        </div>
 {% endif %}
 {% endblock %}
