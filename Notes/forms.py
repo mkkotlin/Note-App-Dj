@@ -6,7 +6,7 @@ class CreateNotes(forms.ModelForm):
     class Meta:
         model = Notes
         fields = ("title","description","drop_down")
-
+        
         widgets = {
             'title': forms.TextInput( attrs={'class':'form-control ','class':'container-fluid'}),
             'description': forms.Textarea(attrs={'class':'form-control'}),

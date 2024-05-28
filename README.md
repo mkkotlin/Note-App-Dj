@@ -1,2 +1,2 @@
-# Note-App-Dj-
+# Note-App-Dj
 Make notes

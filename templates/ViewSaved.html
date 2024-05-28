@@ -14,8 +14,8 @@
                     {% if Edit %}
                     <a class="btn btn btn-outline-warning" href="{% url 'get_by_title' i.title%}">Edit</a> </a>
                     {% else %}
-                    <a class="btn btn-outline-secondary" href="delete">Delete</a>
-                    <a href="#" class="btn btn-outline-secondary">Update</a>
+                    <a class="btn btn-outline-danger" href="delete">Delete</a>
+                    <a class="btn btn-outline-secondary" href="update">Update</a>
                     {% endif %}
                 </div>
               </div>

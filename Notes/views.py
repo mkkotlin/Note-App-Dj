@@ -1,7 +1,9 @@
 from datetime import datetime
-from django.shortcuts import render, get_list_or_404, redirect # type: ignore
+from django.shortcuts import render, get_list_or_404, redirect, get_object_or_404 # type: ignore
 from .forms import CreateNotes, Notes
 from django.views.decorators.http import require_POST # type: ignore
+from django.urls import reverse
+from django.utils.text import slugify
 
 
 # Create your views here.
@@ -28,12 +30,31 @@ def view_saved(request):
 
 
 def get_by_title(request,slug):
+    slug = slugify(slug)
     x = get_list_or_404(Notes, title=slug)
-    return render(request,'ViewSaved.html',{'x':x,})
+    url = reverse('get_by_title',kwargs={'slug':slug})
+    return render(request,'ViewSaved.html',{'x':x,'url':url})
 
 def delete(request,slug):
+    slug = slugify(slug)
     x = get_list_or_404(Notes, title=slug)
     ins = Notes.objects.filter(title=slug)
     print(ins)
     ins.delete()
     return redirect('saved')
+
+
+
+def update(request,slug):
+    slug = slugify(slug)
+    u = get_object_or_404(Notes,title=slug)
+    if request.method == 'POST':
+        notes_form = CreateNotes(request.POST,instance=u)
+        if notes_form.is_valid():
+            notes_form.save()
+            return redirect('saved')
+    else:
+        notes_form = CreateNotes(instance=u)
+    return render(request,'update.html',{"notes_form": notes_form})
+
+
