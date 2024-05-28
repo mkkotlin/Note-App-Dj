@@ -16,15 +16,18 @@ def home(request):
 @require_POST
 def save(request):
     notes_form = CreateNotes(request.POST or None)
+    
     if notes_form.is_valid():
-        notes_form.save()
+        title = notes_form.cleaned_data['title']   #get specific field value
+        new_title = notes_form.save(commit=False)  #prevent save
+        new_title.title = title.replace(' ','_')   # modifing title
+        new_title.save()                           # saving all field after modification
         notes_form = CreateNotes()
         return render(request,'Notes.html',{'saved':'saved',"notes_form": notes_form})
     
 
 def view_saved(request):
     x = Notes.objects.all()
-    print(x)
     return render(request,'ViewSaved.html',{'x':x,'Edit':True})
 
 
@@ -39,7 +42,6 @@ def delete(request,slug):
     slug = slugify(slug)
     x = get_list_or_404(Notes, title=slug)
     ins = Notes.objects.filter(title=slug)
-    print(ins)
     ins.delete()
     return redirect('saved')
 
@@ -48,6 +50,7 @@ def delete(request,slug):
 def update(request,slug):
     slug = slugify(slug)
     u = get_object_or_404(Notes,title=slug)
+    u.title = u.title.replace('_',' ')  #capture data and modifying
     if request.method == 'POST':
         notes_form = CreateNotes(request.POST,instance=u)
         if notes_form.is_valid():
@@ -55,6 +58,7 @@ def update(request,slug):
             return redirect('saved')
     else:
         notes_form = CreateNotes(instance=u)
+        notes_form.fields['title'].widget.attrs['readonly'] = True
     return render(request,'update.html',{"notes_form": notes_form})
 
 
