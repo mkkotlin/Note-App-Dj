@@ -20,7 +20,7 @@ def save(request):
     if notes_form.is_valid():
         title = notes_form.cleaned_data['title']   #get specific field value
         new_title = notes_form.save(commit=False)  #prevent save
-        new_title.title = title.replace(' ','_')   # modifing title
+        new_title.title = title.replace(' ','_').lower()  # modifing title
         new_title.save()                           # saving all field after modification
         notes_form = CreateNotes()
         return render(request,'Notes.html',{'saved':'saved',"notes_form": notes_form})
@@ -50,7 +50,8 @@ def delete(request,slug):
 def update(request,slug):
     slug = slugify(slug)
     u = get_object_or_404(Notes,title=slug)
-    u.title = u.title.replace('_',' ')  #capture data and modifying
+    u.title = u.title.replace('_',' ')
+    u.title = u.title.lower()  #capture data and modifying
     if request.method == 'POST':
         notes_form = CreateNotes(request.POST,instance=u)
         if notes_form.is_valid():
