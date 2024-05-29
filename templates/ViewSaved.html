@@ -12,7 +12,7 @@
                 </div>
                 <div class="card-footer bg-transparent border-success d-grid gap-2">
                     {% if Edit %}
-                    <a class="btn btn btn-outline-warning" href="{% url 'get_by_title' i.title%}">Edit</a> </a>
+                    <a class="btn btn btn-outline-warning" href="{% url 'get_by_id' i.id %}">EDIT</a> </a>
                     {% else %}
                     <a class="btn btn-outline-danger" href="delete">Delete</a>
                     <a class="btn btn-outline-secondary" href="update">Update</a>
