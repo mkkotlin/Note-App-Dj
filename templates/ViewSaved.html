@@ -3,13 +3,12 @@
 {% if x|length > 0 %}
     {% for i in x %}
         
-            <div class="card border-success mb-3" style="max-width: 18rem;">
+            <div class="border-success mb-3" style="width:15rem;" id="card-flex-inline-x">
                 <div class="card-header bg-transparent border-success">Title:&nbsp;&nbsp; {{i.title}}</div>
-                <div class="card-body text-success">
-                  <p class="card-title">Details: &nbsp;&nbsp;{{i.description}}</p>
-                  <p class="card-text">Color:&nbsp;&nbsp;{{i.drop_down.drop_down}}</p>
-                  <p class="card-text">Created date:{{i.created_date}}</p>
+                <div class="card-body text-success" id="card-body">
+                  <p class="card-title" style="font-size: small;">Details: &nbsp;&nbsp;{{i.description}}</p>
                 </div>
+                <div class="card-header bg-transparent border-success" style="font-size: x-small;" >Type:&nbsp;&nbsp;{{i.drop_down.drop_down}}<br>Created date:{{i.created_date}}</div>
                 <div class="card-footer bg-transparent border-success d-grid gap-2">
                     {% if Edit %}
                     <a class="btn btn btn-outline-warning" href="{% url 'get_by_id' i.id %}">EDIT</a> </a>

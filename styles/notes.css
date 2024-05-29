@@ -6,6 +6,35 @@
 .note_view{
     text-decoration: none;
 }
-.wrapper{
-    width: 50%;
+
+#card-flex-inline-x {
+    margin-left: 10vh;
+    right: 0;
+    left: 0;
+    max-height: 60rem;
+    overflow: hidden;
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: .25rem;
+}
+nav.sticky {
+    z-index: 1;
+    position: sticky;
+    top: 0;
+}
+#card-body{
+    overflow: hidden;
+    max-height: 5rem;
+}
+#card-body:hover{
+    overflow: visible;
+    background-color: rgb(0, 255, 255);
+    color: black;
+    max-height: 50rem;
 }

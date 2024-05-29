@@ -11,7 +11,7 @@
       <nav>
         <ul class="nav nav-pills  navbar-dark bg-dark">
           <li class="nav-item">
-            <h4></h4>Update Notes</h4>
+            <a class="nav-link" id="back" href='#'>Update Notes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="saved" href='/view_saved'>saved</a>
@@ -27,7 +27,7 @@
                     {% csrf_token %}
                     {{notes_form.as_p}}
                     {% if notes_form %}
-                    <button type='submit' type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">submit</button>
+                    <button type='submit' type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">Update</button>
                     {% endif %}
                 </form>
             </div>
